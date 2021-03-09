@@ -1,24 +1,62 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type    | Options                  |
+| ------------------ | ------ -| ------------------------ |
+| name               | string  | null: false              |
+| email              | string  | null: false,unique: true |
+| encrypted_password | string  | null: false              |
+| age                | integer |                          |
+| gender             | string  |                          |
+| trouble            | text    | null: false              |
+| occupation         | string  | null: false              |
+| phone              | integer | null: false              |
 
-* Ruby version
+### Association
 
-* System dependencies
+- belongs_to :appoint
 
-* Configuration
 
-* Database creation
+## staffs テーブル
 
-* Database initialization
+| Column    | Type    | Options                  |
+| --------- | --------| ------------------------ |
+| name      | string  | null: false              |
+| gender    | string  | null: false              |
+| age       | integer | null: false              |
+| advantage | text    | null: false              |
+| position  | string  | null: false              |
+| appeal    | text    | null: false              |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- has_many :appoints
+- has_one  :calendar
 
-* Deployment instructions
 
-* ...
+## appoints テーブル
+
+| Column | Type       | Options                        |
+| ------ | -----------| ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| staff  | references | null: false, foreign_key: true |
+| time   | integer    | null: false                    |
+
+### Association
+
+- has_one    :user
+- belongs_to :staff
+
+
+## calenders テーブル
+
+| Column  | Type       | Options                        |
+| ------- | -----------| ------------------------------ |
+| date    | date       | null: false                    |
+| appoint | references | null: false, foreign_key: true |
+
+### Association
+
+- has_one  :staff
+- has_many :appoints
