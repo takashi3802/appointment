@@ -1,0 +1,13 @@
+.list {
+  list-style: none;
+  float: left;
+}
+
+.staff-img-content {
+  position: relative;
+}
+
+.staff-img {
+  width: 33vh;
+  height: 33vh;
+}

@@ -1,0 +1,17 @@
+<% @staffs.each do |staff| %>
+      <li class='list'>
+
+        <div class='staff-img-content'>
+          <%= image_tag staff.image, class: "staff-img" %>
+        </div>
+
+        <div class='staff-info'>
+            <%= staff.name %>
+            <%= staff.gender %>
+            <%= staff.advantage %>
+            <%= staff.position %>
+            <%= staff.appeal %>
+        </div>
+
+      </li>
+<% end %>
