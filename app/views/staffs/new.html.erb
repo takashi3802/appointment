@@ -1,17 +1,14 @@
 <div class='account-page' id='account-page'>
   <div class='account-page__inner clearfix'>
     <div class='account-page__inner--left account-page__header'>
-      <h2>お客様用</h2>
-      <h5>新規アカウントの作成</h5>
+      <h2>スタッフ登録</h2>
     </div>
     <div class='account-page__inner--right user-form'>
-      <%= form_with model: resource, as: resource_name, url: registration_path(resource_name), local: true do |f|%>
-      <%= devise_error_messages!%>
-
+     <%= form_with(model: @staff, local: true) do |f| %>
 
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :お名前%>
+            <%= f.label :名前%>
           </div>
           <div class='field-input'>
             <%= f.text_field :name, autofocus: true%>
@@ -20,39 +17,10 @@
 
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :メールアドレス%>
+            <%= f.label :画像%>
           </div>
           <div class='field-input'>
-            <%= f.email_field :email%>
-          </div>
-        </div>
-
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :パスワード%>
-            <i>(英数字6文字以上)</i>
-          </div>
-          <div class='field-input'>
-            <%= f.password_field :password, autocomplete: "off"%>
-          </div>
-        </div>
-
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :パスワード%>
-            <i>(確認用)</i>
-          </div>
-          <div class='field-input'>
-            <%= f.password_field :password_confirmation, autocomplete: "off"%>
-          </div>
-        </div>
-
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :年齢%>
-          </div>
-          <div class='field-input'>
-            <%= f.text_field :age, autofocus: true%>
+            <%= f.file_field :image%>
           </div>
         </div>
 
@@ -61,39 +29,48 @@
             <%= f.label :性別%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :gender, autofocus: true%>
+            <%= f.text_area :gender%>
           </div>
         </div>
 
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :職業%>
+            <%= f.label :年齢%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :occupation, autofocus: true%>
+            <%= f.text_field :age%>
           </div>
         </div>
 
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :電話番号%>
+            <%= f.label :得意なこと%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :phone, autofocus: true%>
+            <%= f.text_area :advantage%>
           </div>
         </div>
 
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :悩み%>
+            <%= f.label :役職%>
           </div>
           <div class='field-input'>
-            <%= f.text_area :trouble, autofocus: true%>
+            <%= f.text_field :position%>
+          </div>
+        </div>
+
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :アピールポイント%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_area :appeal%>
           </div>
         </div>
 
         <div class='actions'>
-          <%= f.submit "アカウント作成", class: 'btn'%>
+          <%= f.submit "登録", class: 'btn'%>
         </div>
       </div>
       
