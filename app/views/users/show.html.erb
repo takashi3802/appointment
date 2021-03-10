@@ -1,0 +1,30 @@
+<h2><%= current_user.name + "さんのページ" %></h2>
+
+<table class="table">
+   <div class='staff-profile'>
+     <tr>
+       <th class="table__col1">お名前</th>
+       <td class="table__col2"><%=@user.name %></td>
+     </tr>
+     <tr>
+       <th class="table__col1">年齢</th>
+       <td class="table__col2"><%= @user.age %>歳</td>
+     </tr>
+     <tr>
+       <th class="table__col1">性別</th>
+       <td class="table__col2"><%= @user.gender %></td>
+     </tr>
+     <tr>
+       <th class="table__col1">お悩み</th>
+       <td class="table__col2"><%= @user.trouble %></td>
+      </tr>
+      <tr>
+       <th class="table__col1">職業</th>
+       <td class="table__col2"><%= @user.occupation %></td>
+      </tr>
+    </div>
+</table>
+
+   <li><%= link_to '編集する',  edit_user_path, class: "btn" %></li>
+   <li><%= link_to '削除する', user_registration_path, method: :delete, class: "btn" %></li> 
+   <li><%= link_to 'TOPページへ', root_path, class: "btn" %></li>
