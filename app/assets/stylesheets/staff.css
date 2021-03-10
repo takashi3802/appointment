@@ -1,6 +1,8 @@
 .staff-img {
-  width: 33vh;
-  height: 33vh;
+  width: 22vh;
+  height: 22vh;
+  float: left;
+  margin-right: 32px;
 }
 
 .table{

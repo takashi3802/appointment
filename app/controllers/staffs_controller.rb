@@ -1,8 +1,8 @@
 class StaffsController < ApplicationController
-  before_action :if_not_admin, only: [:new, :create] 
+  before_action :if_not_admin, only: [:new, :create]
 
   def index
-    @staffs = Staff.all
+    @staffs = Staff.all.order('created_at ASC')
   end
 
   def new
@@ -10,12 +10,12 @@ class StaffsController < ApplicationController
   end
 
   def create
-   @staff = Staff.create(staff_params)
-   if @staff.save
-    redirect_to root_path
-   else
-    render :new
-   end
+    @staff = Staff.create(staff_params)
+    if @staff.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   private
@@ -25,7 +25,6 @@ class StaffsController < ApplicationController
   end
 
   def if_not_admin
-   redirect_to root_path unless current_user.admin?
+    redirect_to root_path unless current_user.admin?
   end
-
 end
