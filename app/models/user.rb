@@ -5,7 +5,4 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          validates :name, presence: true
-         validates :age, presence: true
-         validates :trouble, presence: true
-         validates :phone, presence: true
 end

@@ -1,8 +1,7 @@
 <div class='account-page' id='account-page'>
   <div class='account-page__inner clearfix'>
     <div class='account-page__inner--left account-page__header'>
-      <h2>スタッフ用</h2>
-      <h5>新規アカウントの作成</h5>
+      <h2>スタッフ登録</h2>
     </div>
     <div class='account-page__inner--right user-form'>
      <%= form_with(model: @staff, local: true) do |f| %>
@@ -71,7 +70,7 @@
         </div>
 
         <div class='actions'>
-          <%= f.submit "アカウント作成", class: 'btn'%>
+          <%= f.submit "登録", class: 'btn'%>
         </div>
       </div>
       

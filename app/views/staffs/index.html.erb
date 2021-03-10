@@ -1,17 +1,45 @@
-<% @staffs.each do |staff| %>
-      <li class='list'>
+<div class='account-page'>
+ <% if user_signed_in?  %>
+  <li><%= link_to current_user.name + "さんのページ","#", class:"btn" %></li>
+  <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn"%></li>
+ <% else %>
+  <li><%= link_to 'ログイン', new_user_session_path, class: "btn" %></li>
+  <li><%= link_to '新規登録', new_user_registration_path, class: "btn" %></li> 
+ <% end %>
 
-        <div class='staff-img-content'>
-          <%= image_tag staff.image, class: "staff-img" %>
-        </div>
+ <% if user_signed_in? && current_user.admin? %>
+  <li><%= link_to 'スタッフ登録', new_staff_path, class: "btn" %></li>
+ <% end %>
 
-        <div class='staff-info'>
-            <%= staff.name %>
-            <%= staff.gender %>
-            <%= staff.advantage %>
-            <%= staff.position %>
-            <%= staff.appeal %>
-        </div>
+ <h2>スタッフ紹介</h2>
 
-      </li>
-<% end %>
+ <% @staffs.each do |staff| %>
+  <table class="table">
+   <div class='staff-profile'>
+     <tr>
+       <%= image_tag staff.image, class: "staff-img" %>
+     </tr>
+     <tr>
+       <th class="table__col1">名前</th>
+       <td class="table__col2"><%= staff.name %></td>
+     </tr>
+     <tr>
+       <th class="table__col1">性別</th>
+       <td class="table__col2"><%= staff.gender %></td>
+      </tr>
+      <tr>
+       <th class="table__col1">役職</th>
+       <td class="table__col2"><%= staff.position %></td>
+      </tr>
+      <tr>
+       <th class="table__col1">得意分野</th>
+       <td class="table__col2"><%= staff.advantage %></td>
+      </tr>
+      <tr>
+       <th class="table__col1">アピールポイント</th>
+       <td class="table__col2"><%= staff.appeal %></td>
+      </tr> 
+    </div>
+   </table>
+  <% end %>
+ </div>
