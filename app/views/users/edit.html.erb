@@ -3,8 +3,12 @@
     <div class='account-page__inner--left account-page__header'>
       <h2><%=current_user.name+"さんの"%></h2> 
       <h2>編集ページ</h2>
+      <li><%= link_to 'TOPページへ', root_path, class: "btn" %></li>
     </div>
+    
     <div class='account-page__inner--right user-form'>
+
+    
 
     <%= form_with model: current_user, local: true do |f|%>
 

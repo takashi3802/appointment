@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   root to: "staffs#index"
   resources :staffs, only: [:new, :create, :index]
-  resources :users, only: [:show, :update, :edit]
+  resources :users, only: [:show, :update, :edit, :destroy]
 end
