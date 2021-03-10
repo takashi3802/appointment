@@ -1,6 +1,6 @@
 <div class='account-page'>
  <% if user_signed_in?  %>
-  <li><%= link_to current_user.name + "さんのページへ",user_path(current_user.id), class:"btn" %></li>
+  <li><%= link_to current_user.name + "さんのマイページへ",user_path(current_user.id), class:"btn" %></li>
   <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn"%></li>
  <% else %>
   <li><%= link_to 'ログイン', new_user_session_path, class: "btn" %></li>
@@ -12,8 +12,14 @@
  <% end %>
 
  <h2>スタッフ紹介</h2>
+  
 
  <% @staffs.each do |staff| %>
+  <% if user_signed_in? && current_user.admin? %>
+    <li><%= link_to '編集する',  edit_staff_path(staff.id), class: "btn" %></li>
+   <li><%= link_to '削除する', staff_path(staff.id), method: :delete, class: "btn" %></li> 
+  <% end %>
+
   <table class="table">
    <div class='staff-profile'>
      <tr>
