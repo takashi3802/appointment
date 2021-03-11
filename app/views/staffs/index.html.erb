@@ -23,7 +23,9 @@
   <table class="table">
    <div class='staff-profile'>
      <tr>
-       <%= image_tag staff.image, class: "staff-img" %>
+       <%= link_to appoints_path do%>
+        <%= image_tag staff.image, class: "staff-img" %>
+       <% end %>
      </tr>
      <tr>
        <th class="table__col1">名前</th>
