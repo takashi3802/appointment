@@ -1,16 +1,21 @@
 <%= form_with model: @appoint, url:appoints_path, local: true do |f| %>
 
  <div class="appoint-box">
-    <%= f.label :日付を選択, class: 'lavel' %>
-    <%= f.date_field :date, class: 'date-select' %>
-    <%= f.label :時間を入力, class: 'lavel' %>
-    <%= time_select("article", "sunrise") %>
+    <%= f.label :日付を選択してください, class: 'lavel' %>
+    <%= f.date_field :start_time, class: 'date-select' %>
+    <%= f.label :時間を選択を選択してください, class: 'lavel' %>
+    <%= f.collection_select(:time_select_id, TimeSelect.all, :id, :name, {}, {class:"time-select"}) %>
     <%= f.submit '予約する' %>
  </div>
 <% end %>
 
-<%= month_calendar appoints: @all do |date, all| %>
-  <%= date.day %> 
-  <% all.each do |i| %>
+<%= month_calendar events: @appoints do |date, appoints| %>
+  <%= date.day %>
+  <% appoints.each do |appoint| %>
+   <div>
+     <%= appoint.time_select.name %>に予約
+   </div>
   <% end %>
 <% end %>
+
+<li><%= link_to 'TOPページへ', root_path, class: "btn" %></li>

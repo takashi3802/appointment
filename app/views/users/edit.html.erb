@@ -15,6 +15,7 @@
        <div class='field'>
           <div class='field-label'>
             <%= f.label :お名前%>
+            <i>(全角で入力してください)</i>
           </div>
           <div class='field-input'>
             <%= f.text_field :name, autofocus: true%>
@@ -33,7 +34,7 @@
         <div class='field'>
           <div class='field-label'>
             <%= f.label :パスワード%>
-            <i>(英数字6文字以上)</i>
+            <i>(半角英数字6文字以上で入力してください)</i>
           </div>
           <div class='field-input'>
             <%= f.password_field :password, autocomplete: "off"%>
@@ -53,6 +54,7 @@
         <div class='field'>
           <div class='field-label'>
             <%= f.label :年齢%>
+            <i>(半角数字で入力してください)</i>
           </div>
           <div class='field-input'>
             <%= f.text_field :age, autofocus: true%>
@@ -62,6 +64,7 @@
         <div class='field'>
           <div class='field-label'>
             <%= f.label :性別%>
+            <i>(選択してください)</i>
           </div>
           <div class='field-input'>
             <%= f.text_field :gender, autofocus: true%>
@@ -71,6 +74,7 @@
         <div class='field'>
           <div class='field-label'>
             <%= f.label :職業%>
+            <i>(任意)</i>
           </div>
           <div class='field-input'>
             <%= f.text_field :occupation, autofocus: true%>
@@ -80,6 +84,7 @@
         <div class='field'>
           <div class='field-label'>
             <%= f.label :電話番号%>
+            <i>(半角数字で入力してください)</i>
           </div>
           <div class='field-input'>
             <%= f.text_field :phone, autofocus: true%>
@@ -89,6 +94,7 @@
         <div class='field'>
           <div class='field-label'>
             <%= f.label :悩み%>
+            <i>(任意)</i>
           </div>
           <div class='field-input'>
             <%= f.text_area :trouble, autofocus: true%>

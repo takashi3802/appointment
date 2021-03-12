@@ -64,6 +64,8 @@ gem 'image_processing', '~> 1.2'
 
 gem 'pry-rails'
 
-gem 'simple_calendar', '~> 2.0'
+gem 'simple_calendar'
 
 gem 'rails-i18n'
+
+gem 'active_hash'

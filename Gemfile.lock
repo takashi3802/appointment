@@ -37,6 +37,8 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    active_hash (3.1.0)
+      activesupport (>= 5.0.0)
     activejob (6.0.3.5)
       activesupport (= 6.0.3.5)
       globalid (>= 0.3.6)
@@ -251,6 +253,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_hash
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
@@ -267,7 +270,7 @@ DEPENDENCIES
   rubocop
   sass-rails (~> 5)
   selenium-webdriver
-  simple_calendar (~> 2.0)
+  simple_calendar
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
