@@ -1,0 +1,12 @@
+
+<%= form_with model:@appoint, url: staff_appoints_path, method: :post, local: true do |f| %>
+ <div class="appoint-box">
+    <%= f.label :日付を選択してください, class: 'lavel' %>
+    <%= f.date_field :start_time, class: 'date-select' %>
+    <%= f.label :時間を選択を選択してください, class: 'lavel' %>
+    <%= f.collection_select(:time_select_id, TimeSelect.all, :id, :name, {}, {class:"time-select"}) %>
+    <%= f.submit '予約する' %>
+ </div>
+<% end %>
+
+<%= link_to 'TOPページへ', root_path, class: "btn" %>

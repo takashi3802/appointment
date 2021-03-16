@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :age, :gender, :occupation, :phone, :trouble)
+    params.require(:user).permit(:name, :email, :password, :age, :gender_id, :occupation, :phone, :trouble)
   end
 
   def move_to_index

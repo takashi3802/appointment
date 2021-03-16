@@ -1,8 +1,8 @@
 User.create!(name:  "admin",
   email: "admin@com",
-  password:  "111111",
-  password_confirmation: "111111",
+  password:  "admin1111",
+  password_confirmation: "admin1111",
   age: 32,
-  gender:"男性",
+  gender_id: 2,
   phone: "12345678901",
   admin: true)

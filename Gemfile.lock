@@ -270,7 +270,7 @@ DEPENDENCIES
   rubocop
   sass-rails (~> 5)
   selenium-webdriver
-  simple_calendar
+  simple_calendar (~> 2.4)
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

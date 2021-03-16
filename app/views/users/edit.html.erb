@@ -14,8 +14,7 @@
 
        <div class='field'>
           <div class='field-label'>
-            <%= f.label :お名前%>
-            <i>(全角で入力してください)</i>
+            <%= f.label :名前%>
           </div>
           <div class='field-input'>
             <%= f.text_field :name, autofocus: true%>
@@ -67,7 +66,7 @@
             <i>(選択してください)</i>
           </div>
           <div class='field-input'>
-            <%= f.text_field :gender, autofocus: true%>
+            <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:"gender-select"})%>
           </div>
         </div>
 

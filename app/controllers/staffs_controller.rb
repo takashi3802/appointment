@@ -1,6 +1,6 @@
 class StaffsController < ApplicationController
   before_action :if_not_admin, only: [:new, :create, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :show]
 
   def index
     @staffs = Staff.all.order('created_at ASC')
@@ -40,10 +40,14 @@ class StaffsController < ApplicationController
     end
   end
 
+  def show
+    @staff = Staff.find(params[:id])
+  end
+
   private
 
   def staff_params
-    params.require(:staff).permit(:image, :name, :gender, :age, :advantage, :position, :appeal)
+    params.require(:staff).permit(:image, :name, :gender_id, :age, :advantage, :position, :appeal)
   end
 
   def if_not_admin
