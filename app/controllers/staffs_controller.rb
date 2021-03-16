@@ -4,6 +4,7 @@ class StaffsController < ApplicationController
 
   def index
     @staffs = Staff.all.order('created_at ASC')
+    @appoints = Appoint.all
   end
 
   def new

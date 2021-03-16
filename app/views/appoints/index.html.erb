@@ -1,8 +1,0 @@
-<%= month_calendar do |date, appoints| %>
-  <%= date.day %>
-  <% appoints.each do |appoint| %>
-    <div>○<%= appoint.time_select.name %></div>
-  <% end %>
-<% end %>
-
-<%= link_to 'TOPページへ', root_path, class: "btn" %>

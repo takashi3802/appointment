@@ -11,6 +11,16 @@
   <%= link_to 'スタッフ登録', new_staff_path, class: "btn" %>
  <% end %>
 
+ <h2>今週の予約表</h2>
+ <%= week_calendar events:@appoints do |date, appoints| %>
+  <%= date.day %>
+  <% appoints.each do |appoint| %>
+    <div>✅<%= appoint.user.name %>様 </div>
+    <div><%= appoint.time_select.name %>予約完了 </div>
+  <% end %>
+<% end %>
+
+
  <h2>スタッフ紹介</h2>
  <h4>画像をクリックしてスタッフを選択してください</h4>
 
@@ -50,3 +60,5 @@
    </table>
   <% end %>
  </div>
+
+ 

@@ -1,4 +1,3 @@
-
 <%= form_with model:@appoint, url: staff_appoints_path, method: :post, local: true do |f| %>
  <div class="appoint-box">
     <%= f.label :日付を選択してください, class: 'lavel' %>
@@ -7,6 +6,14 @@
     <%= f.collection_select(:time_select_id, TimeSelect.all, :id, :name, {}, {class:"time-select"}) %>
     <%= f.submit '予約する' %>
  </div>
+<% end %>
+
+<%= month_calendar events:@appoints do |date, appoints| %>
+  <%= date.day %>
+  <% appoints.each do |appoint| %>
+    <div>✅<%= appoint.user.name %>様 </div>
+    <div><%= appoint.time_select.name %>予約完了 </div>
+  <% end %>
 <% end %>
 
 <%= link_to 'TOPページへ', root_path, class: "btn" %>

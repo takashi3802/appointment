@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :move_to_index, only: [:show, :update, :edit, :destroy]
 
   def show
+    @appoints = Appoint.all
     @user = User.find(params[:id])
   end
 
