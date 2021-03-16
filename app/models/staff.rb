@@ -6,7 +6,7 @@ class Staff < ApplicationRecord
   validates :position,  presence: true
   validates :appeal,    presence: true
   validates :image,     presence: true
-  validates :gender_id,numericality: { other_than: 1 }
+  validates :gender_id, numericality: { other_than: 1 }
   validates :age, presence: true, format: { with: /\A[0-9]\d+\z/, message: 'は半角数字で入力してください' }
 
   belongs_to :user

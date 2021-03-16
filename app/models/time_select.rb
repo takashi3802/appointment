@@ -19,5 +19,4 @@ class TimeSelect < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :appoints
-
-  end
+end
