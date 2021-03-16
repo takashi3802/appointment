@@ -12,7 +12,7 @@
      </tr>
      <tr>
        <th class="table__col1">性別</th>
-       <td class="table__col2"><%= @user.gender %></td>
+       <td class="table__col2"><%= @user.gender.name %></td>
      </tr>
      <tr>
        <th class="table__col1">お悩み</th>
@@ -25,6 +25,18 @@
     </div>
 </table>
 
-   <li><%= link_to '編集する',  edit_user_path, class: "btn" %></li>
-   <li><%= link_to '削除する', user_path, method: :delete, class: "btn" %></li> 
-   <li><%= link_to 'TOPページへ', root_path, class: "btn" %></li>
+<li><%= link_to '編集する',  edit_user_path, class: "btn" %></li>
+<li><%= link_to '削除する', user_path, method: :delete, class: "btn" %></li> 
+
+<h2><%= current_user.name + "様の予約表" %></h2>
+ <%= week_calendar events:@appoints do |date, appoints| %>
+  <%= date.day %>
+  <% appoints.each do |appoint| %>
+   <% if current_user.id == appoint.user.id %>
+    <div>✅<%= appoint.user.name %>様 </div>
+    <div><%= appoint.time_select.name %>予約完了 </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= link_to 'TOPページへ', root_path, class: "btn" %>

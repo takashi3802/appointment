@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_09_080934) do
+ActiveRecord::Schema.define(version: 2021_03_10_081914) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,9 +33,20 @@ ActiveRecord::Schema.define(version: 2021_03_09_080934) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "appoints", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "time_select_id", null: false
+    t.datetime "start_time", null: false
+    t.bigint "user_id", null: false
+    t.bigint "staff_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["staff_id"], name: "index_appoints_on_staff_id"
+    t.index ["user_id"], name: "index_appoints_on_user_id"
+  end
+
   create_table "staffs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.string "gender", null: false
+    t.integer "gender_id", null: false
     t.integer "age", null: false
     t.text "advantage", null: false
     t.string "position", null: false
@@ -48,11 +59,11 @@ ActiveRecord::Schema.define(version: 2021_03_09_080934) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "name", null: false
-    t.integer "age"
-    t.string "gender"
+    t.integer "age", null: false
+    t.integer "gender_id", null: false
     t.text "trouble"
     t.string "occupation"
-    t.string "phone"
+    t.string "phone", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -64,4 +75,6 @@ ActiveRecord::Schema.define(version: 2021_03_09_080934) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "appoints", "staffs"
+  add_foreign_key "appoints", "users"
 end

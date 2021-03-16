@@ -1,5 +1,8 @@
-User.create!(name:  "aaaaaa",
-  email: "test@com",
-  password:  "111111",
-  password_confirmation: "111111",
+User.create!(name:  "admin",
+  email: "admin@com",
+  password:  "admin1111",
+  password_confirmation: "admin1111",
+  age: 32,
+  gender_id: 2,
+  phone: "12345678901",
   admin: true)

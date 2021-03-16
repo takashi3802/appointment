@@ -28,18 +28,20 @@
         <div class='field'>
           <div class='field-label'>
             <%= f.label :性別%>
+             <i>(選択してください)</i>
           </div>
           <div class='field-input'>
-            <%= f.text_area :gender%>
+            <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:"gender-select"}) %>
           </div>
         </div>
 
         <div class='field'>
           <div class='field-label'>
             <%= f.label :年齢%>
+             <i>(半角数字で入力)</i>
           </div>
           <div class='field-input'>
-            <%= f.text_field :age%>
+            <%= f.text_field :age, autofocus: true%>
           </div>
         </div>
 
@@ -48,7 +50,7 @@
             <%= f.label :得意なこと%>
           </div>
           <div class='field-input'>
-            <%= f.text_area :advantage%>
+            <%= f.text_area :advantage, autofocus: true%>
           </div>
         </div>
 
@@ -57,7 +59,7 @@
             <%= f.label :役職%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :position%>
+            <%= f.text_field :position, autofocus: true%>
           </div>
         </div>
 
@@ -66,7 +68,7 @@
             <%= f.label :アピールポイント%>
           </div>
           <div class='field-input'>
-            <%= f.text_area :appeal%>
+            <%= f.text_area :appeal, autofocus: true%>
           </div>
         </div>
 

@@ -8,22 +8,29 @@
  <% end %>
 
  <% if user_signed_in? && current_user.admin? %>
-  <li><%= link_to 'スタッフ登録', new_staff_path, class: "btn" %></li>
+  <%= link_to 'スタッフ登録', new_staff_path, class: "btn" %>
  <% end %>
 
+ <h2>今週の予約表</h2>
+ <%= week_calendar events:@appoints do |date, appoints| %>
+  <%= date.day %>
+  <% appoints.each do |appoint| %>
+    <div>✅<%= appoint.user.name %>様 </div>
+    <div><%= appoint.time_select.name %>予約完了 </div>
+  <% end %>
+<% end %>
+
+
  <h2>スタッフ紹介</h2>
-  
+ <h4>画像をクリックしてスタッフを選択してください</h4>
 
  <% @staffs.each do |staff| %>
-  <% if user_signed_in? && current_user.admin? %>
-    <li><%= link_to '編集する',  edit_staff_path(staff.id), class: "btn" %></li>
-   <li><%= link_to '削除する', staff_path(staff.id), method: :delete, class: "btn" %></li> 
-  <% end %>
-
   <table class="table">
    <div class='staff-profile'>
      <tr>
-       <%= image_tag staff.image, class: "staff-img" %>
+       <%= link_to staff_path(staff.id) do%>
+        <%= image_tag staff.image, class: "staff-img" %>
+       <% end %>
      </tr>
      <tr>
        <th class="table__col1">名前</th>
@@ -31,7 +38,7 @@
      </tr>
      <tr>
        <th class="table__col1">性別</th>
-       <td class="table__col2"><%= staff.gender %></td>
+       <td class="table__col2"><%= staff.gender.name %></td>
      </tr>
      <tr>
        <th class="table__col1">年齢</th>
@@ -53,3 +60,5 @@
    </table>
   <% end %>
  </div>
+
+ 

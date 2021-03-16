@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :move_to_index, only: [:show, :update, :edit, :destroy]
 
   def show
+    @appoints = Appoint.all
     @user = User.find(params[:id])
   end
 
@@ -22,11 +23,11 @@ class UsersController < ApplicationController
     current_user.destroy
     redirect_to root_path
   end
-  
+
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :age, :gender, :occupation, :phone, :trouble)
+    params.require(:user).permit(:name, :email, :password, :age, :gender_id, :occupation, :phone, :trouble)
   end
 
   def move_to_index
