@@ -50,3 +50,29 @@ li {
   list-style: none;
   display: inline;
 }
+
+
+.staff__messages{
+  background-color: #f6f6f6;
+  padding: 20px;
+  margin: 28px 0 40px 0;
+}
+
+.messages_lists{
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.messages_list{
+  list-style-type: square;
+  padding-bottom: 5px;
+}
+
+.field{
+  margin: 10px 0;
+}
+
+.actions{
+  margin-bottom: 40px;
+}
