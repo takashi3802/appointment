@@ -69,3 +69,8 @@ gem 'simple_calendar', '~> 2.4'
 gem 'rails-i18n'
 
 gem 'active_hash'
+
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
+gem 'omniauth', '~>1.9.1'

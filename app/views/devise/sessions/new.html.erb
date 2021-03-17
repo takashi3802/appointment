@@ -54,3 +54,6 @@
     <% end %>
   </div>
 </div>
+
+<%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post, class: 'btn' %>
+<%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, class: 'btn' %>
