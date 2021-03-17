@@ -43,6 +43,7 @@ class StaffsController < ApplicationController
 
   def show
     @staff = Staff.find(params[:id])
+    @messages = Message.all.order('created_at DESC')
   end
 
   private

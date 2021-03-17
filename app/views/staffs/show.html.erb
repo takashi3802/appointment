@@ -37,6 +37,32 @@
     </div>
    </table>
 
+<div class="staff__messages">
+ <% if user_signed_in? %>
+   <%= form_with model: @message,url:staff_messages_path(@staff.id),local: true do |f| %>
+     <div class="field">
+       <%= f.label :text, "メッセージ" %><br />
+       <%= f.text_field :text %>
+    </div>
+    <div class="actions">
+      <%= f.submit "送信する", class: "btn"  %>
+    </div>
+   <% end %> 
+ <% end %>
+
+
+ <ul class="messages_lists">
+   <% @messages.each do |message| %>
+      <li class="messages_list">
+       <% if message.staff_id == @staff.id %>
+         <%= message.text %>
+         (<%= message.user.name %>)
+       <% end %>
+       </li>
+      
+   <% end %>
+  </ul>
+
 <% unless  current_user.admin? %>
   <%= link_to '予約する', new_staff_appoint_path(@staff.id), class: "btn" %>
 <% end %>
