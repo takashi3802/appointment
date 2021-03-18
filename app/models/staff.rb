@@ -10,6 +10,8 @@ class Staff < ApplicationRecord
   validates :age, presence: true, format: { with: /\A[0-9]\d+\z/, message: 'は半角数字で入力してください' }
 
   belongs_to :user
+  has_many :appoint, dependent: :destroy
+  has_many :messages, dependent: :destroy
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :gender

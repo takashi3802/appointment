@@ -9,11 +9,10 @@ class User < ApplicationRecord
     validates :phone, presence: true
   end
 
-  has_many :appoints
-  has_many :staffs
+  has_many :appoints, dependent: :destroy
+  has_many :staffs, dependent: :destroy
   has_many :messages, dependent: :destroy
-
-  has_many :sns_credentials
+  has_many :sns_credentials, dependent: :destroy
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :gender

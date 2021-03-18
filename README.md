@@ -7,56 +7,63 @@
 | name               | string  | null: false              |
 | email              | string  | null: false,unique: true |
 | encrypted_password | string  | null: false              |
-| age                | integer |                          |
-| gender             | string  |                          |
-| trouble            | text    | null: false              |
-| occupation         | string  | null: false              |
-| phone              | integer | null: false              |
+| age                | integer | null: false              |
+| gender_id          | integer | null: false              |
+| trouble            | text    |                          |
+| occupation         | string  |                          |
+| phone              | string  | null: false              |
 
 ### Association
 
-- belongs_to :appoint
+- has_many :appoints
+- has_many :staffs
+- has_many :messages
+- has_many :sns_credentials
 
 
 ## staffs テーブル
 
-| Column    | Type    | Options                  |
-| --------- | --------| ------------------------ |
-| name      | string  | null: false              |
-| gender    | string  | null: false              |
-| age       | integer | null: false              |
-| advantage | text    | null: false              |
-| position  | string  | null: false              |
-| appeal    | text    | null: false              |
+| Column    | Type      | Options                        |
+| --------- | ----------| ------------------------------ |
+| name      | string    | null: false                    |
+| gender_id | integer   | null: false                    |
+| age       | integer   | null: false                    |
+| advantage | text      | null: false                    |
+| position  | string    | null: false                    |
+| appeal    | text      | null: false                    |
+| user      | reference | null: false, foreign_key: true |
 
 ### Association
 
-- has_many :appoints
-- has_one  :calendar
+- belongs_to :user
+- has_many :appoint
+- has_many :messages
 
 
 ## appoints テーブル
 
-| Column | Type       | Options                        |
-| ------ | -----------| ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| staff  | references | null: false, foreign_key: true |
-| time   | integer    | null: false                    |
+| Column         | Type       | Options                        |
+| -------------- | -----------| ------------------------------ |
+| user           | references | null: false, foreign_key: true |
+| staff          | references | null: false, foreign_key: true |
+| start_time     | datetime   | null: false                    |
+| time_select_id | integer    | null: false                    |
 
 ### Association
 
-- has_one    :user
+- belongs_to :user
 - belongs_to :staff
 
 
-## calenders テーブル
+## messages テーブル
 
-| Column  | Type       | Options                        |
-| ------- | -----------| ------------------------------ |
-| date    | date       | null: false                    |
-| appoint | references | null: false, foreign_key: true |
+| Column | Type       | Options                        |
+| ------ | -----------| ------------------------------ |
+| text   | text       | null: false                    |
+| user   | references | null: false, foreign_key: true |
+| staff  | references | null: false, foreign_key: true |
 
 ### Association
 
-- has_one  :staff
-- has_many :appoints
+- belongs_to  :staff
+- belongs_to  :user
