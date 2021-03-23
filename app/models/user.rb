@@ -10,7 +10,7 @@ class User < ApplicationRecord
   end
 
   has_many :appoints, dependent: :destroy
-  has_many :staffs, dependent: :destroy
+  has_many :staffs
   has_many :messages, dependent: :destroy
   has_many :sns_credentials, dependent: :destroy
 
