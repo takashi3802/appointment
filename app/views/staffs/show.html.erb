@@ -1,11 +1,11 @@
  <h2>スタッフ紹介</h2>
 
- <% if user_signed_in? && current_user.admin? %>
+<% if user_signed_in? && current_user.admin? %>
    <li><%= link_to '編集する',  edit_staff_path, class: "btn" %></li>
    <li><%= link_to '削除する', staff_path, method: :delete, class: "btn" %></li> 
-  <% end %>
+<% end %>
 
-  <table class="table">
+<table class="table">
    <div class='staff-profile'>
      <tr>
         <%= image_tag @staff.image, class: "staff-img" %>
@@ -35,12 +35,12 @@
        <td class="table__col2"><%= @staff.appeal %></td>
       </tr> 
     </div>
-   </table>
+</table>
 
 <div class="staff__messages">
  <% if user_signed_in? %>
    <%= form_with model: @message,url:staff_messages_path(@staff.id),local: true do |f| %>
-     <div class="field">
+     <div id="field">
        <%= f.label :text, "メッセージ" %><br />
        <%= f.text_field :text %>
     </div>
@@ -53,18 +53,17 @@
 
  <ul class="messages_lists">
    <% @messages.each do |message| %>
-      <li class="messages_list">
+      <li id="messages_list">
        <% if message.staff_id == @staff.id %>
          <%= message.text %>
          (<%= message.user.name %>)
        <% end %>
        </li>
-      
    <% end %>
   </ul>
-
+</div>
 <% unless  current_user.admin? %>
-  <%= link_to '予約する', new_staff_appoint_path(@staff.id), class: "btn" %>
+  <%= link_to 'このスタッフを予約する', new_staff_appoint_path(@staff.id), class: "btn" %>
 <% end %>
 
 <%= link_to 'TOPページへ', root_path, class: "btn" %>
