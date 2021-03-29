@@ -8,18 +8,18 @@
  https://appointment-34451.herokuapp.com/
 
  ## BASIC認証
- ・ID:takashi
- ・PASS:6424
+ *ID:takashi
+ *PASS:6424
 
  ## ログイン情報(テスト用)
   スタッフ管理者ユーザー
-  ・名前:admin
-  ・Email:admin@com
-  ・pass:admin1111
+  *名前:admin
+  *Email:admin@com
+  *pass:admin1111
  ## ユーザー
-  ・名前:takashi
-  ・Email:takashi@com
-  ・pass:ta6424
+  *名前:takashi
+  *Email:takashi@com
+  *pass:ta6424
 
 # 制作背景
  前職のドラッグストアで勤務していた時、セール中など忙しい日は急な来客にしっかり応対することが難しいと感じていました。
