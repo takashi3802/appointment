@@ -16,7 +16,6 @@
 ### Association
 
 - has_many :appoints
-- has_many :staffs
 - has_many :messages
 - has_many :sns_credentials
 
@@ -35,7 +34,6 @@
 
 ### Association
 
-- belongs_to :user
 - has_many :appoint
 - has_many :messages
 

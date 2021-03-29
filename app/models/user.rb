@@ -3,14 +3,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   validates :name, presence: true
-  validates :gender_id, numericality: { other_than: 1 }
+  validates :gender_id, numericality: { other_than: 1 , message: 'を選択してください'}
   with_options presence: true, format: { with: /\A[0-9]\d+\z/, message: 'は半角数字で入力してください' } do
     validates :age, presence: true
     validates :phone, presence: true
   end
 
   has_many :appoints, dependent: :destroy
-  has_many :staffs
   has_many :messages, dependent: :destroy
   has_many :sns_credentials, dependent: :destroy
 

@@ -11,8 +11,8 @@
 <%= month_calendar events:@appoints do |date, appoints| %>
   <%= date.day %>
   <% appoints.each do |appoint| %>
-    <div>✅<%= appoint.user.name %>様 </div>
-    <div><%= appoint.time_select.name %>予約完了 </div>
+    <div>✅<%= appoint.user.name %>様</div>
+    <div><%= appoint.time_select.name %>予約完了</div>
   <% end %>
 <% end %>
 

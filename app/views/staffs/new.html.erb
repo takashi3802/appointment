@@ -7,6 +7,9 @@
     <div class='account-page__inner--right user-form'>
      <%= form_with(model: @staff, local: true) do |f| %>
 
+     <%= render "devise/shared/error_messages", resource: @staff %>
+
+
         <div class='field'>
           <div class='field-label'>
             <%= f.label :名前%>

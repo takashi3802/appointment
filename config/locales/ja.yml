@@ -1,0 +1,17 @@
+ja:
+ activerecord:
+   attributes:
+     user:
+       name: 名前
+       gender_id: 性別
+       age: 年齢
+       phone: 電話番号
+     
+     staff:
+       name: 名前
+       image: 画像
+       age: 年齢
+       advantage: 得意なこと
+       gender_id: 性別
+       position: 役職
+       appeal: アピールポイント

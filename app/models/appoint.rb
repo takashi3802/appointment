@@ -5,5 +5,4 @@ class Appoint < ApplicationRecord
   belongs_to :staff
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :time_select
-
 end

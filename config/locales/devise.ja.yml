@@ -27,6 +27,7 @@ ja:
         updated_at: 更新日
     models:
       user: ユーザー
+      staff: スタッフ
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
@@ -140,4 +141,4 @@ ja:
       not_locked: はロックされていません。
       not_saved:
         one: エラーが発生したため %{resource} は保存されませんでした。
-        other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
+        other: "%{count} 個のエラーが発生したため %{resource} は登録出来ませんでした。"
