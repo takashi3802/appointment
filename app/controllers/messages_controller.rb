@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     if @message.save
-      ActionCable.server.broadcast 'message_channel', content: @message
+      redirect_to staff_path(@message.staff_id)
     else
       render 'staffs/show'
     end
